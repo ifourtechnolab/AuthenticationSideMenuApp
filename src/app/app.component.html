@@ -1,0 +1,42 @@
+<ion-app>
+  <ion-split-pane contentId="main-content" when="(min-width: 1500px)">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      
+      <ion-content>
+        <div *ngFor="let p of appPages">
+          <ion-menu-toggle auto-hide="false" *ngIf="p.url">
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+              <ion-icon slot="start" [name]="p.icon"></ion-icon>
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <ion-item *ngIf="p.children?.length > 0" (click)="p.open = !p.open" detail="false">
+            <ion-icon slot="end" name="arrow-forward" *ngIf="!p.open"></ion-icon>
+            <ion-icon slot="end" name="arrow-down" *ngIf="p.open"></ion-icon>
+            <ion-icon name="share" slot="start"></ion-icon>
+            <ion-label>{{ p.title }}</ion-label>
+          </ion-item>
+
+          <ion-menu-toggle *ngIf="p.open">
+            <ion-item *ngFor="let sub of p.children" class="childShare" [routerLink]="sub.url"
+              [routerDirection]="'root'" (click)="setting(sub.url)">
+              <ion-icon [name]="sub.icon" slot="start"></ion-icon>
+              <ion-label>
+                {{ sub.title }}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </div>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

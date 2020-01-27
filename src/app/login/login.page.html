@@ -1,0 +1,39 @@
+<ion-content class="ion-padding">
+  <ion-card class="animated fadeInDown delay-1s">
+    <ion-card-content>
+      <form [formGroup]="myForm">
+        <ion-item>
+          <ion-label position="floating">Username</ion-label>
+          <ion-input color="tertiary" type="text" formControlName="userName"></ion-input>
+        </ion-item>
+        <p color="danger"
+          *ngIf="myForm.controls['userName'].hasError('required') && myForm.controls['userName'].touched">
+          <ion-text color="danger">
+            Username is required.
+          </ion-text>
+        </p>
+
+        <ion-item>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input color="tertiary" type="password" formControlName="password"></ion-input>
+        </ion-item>
+        <p color="danger"
+          *ngIf="myForm.controls['password'].hasError('required') && myForm.controls['password'].touched">
+          <ion-text color="danger">
+            Password is required.
+          </ion-text>
+        </p>
+        <p color="danger"
+          *ngIf="myForm.controls['password'].hasError('minlength') && myForm.controls['password'].touched">
+          <ion-text color="danger">
+            Password should contain min 6 chars.
+          </ion-text>
+        </p>
+        
+        <ion-button size="medium" expand="full" (click)="login()" tappable>
+          Login
+        </ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

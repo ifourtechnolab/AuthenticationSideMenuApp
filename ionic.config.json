@@ -1,0 +1,7 @@
+{
+  "name": "MyAppSideMenu",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

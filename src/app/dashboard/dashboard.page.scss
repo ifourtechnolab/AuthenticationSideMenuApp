@@ -1,0 +1,32 @@
+:host {
+    ion-content {
+        text-align: center;
+    }
+    
+    .overlay {  
+        .icon {
+            display: none;
+        }
+    }
+    
+    .overlayNew {
+        .icon {
+            display: block;
+            color: white;
+            font-size: 30px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+          }          
+    }
+      
+    p {
+        img {
+            width: 84%;
+            margin-left: 25px;
+        }
+    }
+}

@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    
+    <ion-title>Info</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="noScroll ion-padding">
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <td>
+            <h5>UUID: </h5>
+          </td>
+          <td>
+            <h5>{{uuid}}</h5>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <h5>Model: </h5>
+          </td>
+          <td>
+            <h5>{{model}}</h5>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <h5>OS: </h5>
+          </td>
+          <td>
+            <h5>{{platform}} {{version}}</h5>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h5>Current Location: </h5>
+  <div id="map"></div>
+</ion-content>

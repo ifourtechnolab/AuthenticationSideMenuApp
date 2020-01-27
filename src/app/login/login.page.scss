@@ -1,0 +1,29 @@
+:host {
+  ion-content {
+    --background: #ffffff;
+  }
+
+  ion-item {
+    --ion-item-background: transparent;
+    --border-color: #000000;
+    --padding-start: 0px;
+    color: #000000;
+    
+    ion-input {
+      color: #000000;
+    }
+  }
+
+  .item-has-focus .label-floating.sc-ion-label-md-h {
+    color: #000000; 
+  }
+  
+  ion-button {
+    margin-top: 40px;
+    color: white !important;
+  }
+
+  ion-card {
+    margin-top: 150px;
+  }
+}

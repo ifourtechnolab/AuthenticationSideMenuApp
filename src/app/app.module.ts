@@ -39,7 +39,8 @@ import { FilePath } from '@ionic-native/file-path/ngx';
     SocialSharing,
     File,
     WebView,
-    FilePath
+    FilePath,
+    Camera
   ],
   bootstrap: [AppComponent]
 })

@@ -1,9 +1,9 @@
 import { Injectable, ApplicationRef } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { Camera, CameraOptions, PictureSourceType } from '@ionic-native/camera/ngx';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ToastService } from './toast.service';
 import { LoaderService } from './loader.service';
-import { ActionSheetController, Platform } from '@ionic/angular';
+import { Platform } from '@ionic/angular';
 import { File } from '@ionic-native/File/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
@@ -14,7 +14,7 @@ export class PhotoService {
   public arrPhotos: Photo[] = [];
 
   constructor(private storage: Storage, private camera: Camera, private loaderService: LoaderService, private file: File,
-              private toastService: ToastService, private actionSheetController: ActionSheetController, private webview: WebView,
+              private toastService: ToastService, private webview: WebView,
               private ref: ApplicationRef, private filePath: FilePath, private platform: Platform) { }
 
   loadSaved() {
@@ -26,30 +26,9 @@ export class PhotoService {
   }
 
   async selectImage() {
-    const actionSheet = await this.actionSheetController.create({
-      header: 'Select Image source',
-      buttons: [{
-        text: 'Load from Library',
-        handler: () => {
-          this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
-        }
-      }, {
-        text: 'Use Camera',
-        handler: () => {
-          this.takePicture(this.camera.PictureSourceType.CAMERA);
-        }
-      }, {
-        text: 'Cancel',
-        role: 'cancel'
-      }]
-    });
-    await actionSheet.present();
-  }
-
-  async takePicture(sourceType: PictureSourceType) {
     const options: CameraOptions = {
       quality: 100,
-      sourceType,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
       saveToPhotoAlbum: false,
       correctOrientation: true
     };
